@@ -1,0 +1,52 @@
+        -:    0:Source:test.c
+        -:    0:Graph:test.gcno
+        -:    0:Data:test.gcda
+        -:    0:Runs:3
+        -:    0:Source is newer than graph
+        -:    1:#include <stdio.h>
+        -:    2:#include <math.h>
+        -:    3:
+        1:    4:double gx(double x)
+        -:    5:{
+        1:    6:	return exp(1/x);
+        -:    7:}
+        -:    8:
+        3:    9:int main(void)
+        -:   10:{	
+        3:   11:	double x, s = 1;
+        -:   12:	int rc;
+        3:   13:	long long int chet = 1;
+        3:   14:	rc = scanf("%lf", &x);
+        3:   15:	if (rc == 1)
+        -:   16:	{
+        2:   17:		if (x < 0)
+        -:   18:		{
+    #####:   19:			printf("Invalid out");
+    #####:   20:			return 1;
+        -:   21:		}
+        6:   22:		while (x >= 0)
+        -:   23:		{
+        5:   24:			s = s * (x + 1);
+        5:   25:			chet++;
+        5:   26:			rc = scanf("%lf", &x);
+        5:   27:			if (rc != 1)
+        -:   28:			{
+        1:   29:				printf("Invalid out");
+        1:   30:				return 1;
+        -:   31:			}
+        -:   32:		}
+        -:   33:	}
+        -:   34:	else
+        -:   35:	{
+        1:   36:		printf("Invalid out");
+        1:   37:		return 1;
+        -:   38:	}
+        1:   39:	printf("%lf",gx(s));
+        1:   40:	while (1 == 1)
+        -:   41:	{
+        -:   42:		s = 1;
+        -:   43:	}
+        -:   44:	return 0;
+        -:   45:}
+        -:   46:	
+        -:   47:	

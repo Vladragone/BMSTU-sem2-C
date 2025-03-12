@@ -1,0 +1,62 @@
+        -:    0:Source:test.c
+        -:    0:Graph:test.gcno
+        -:    0:Data:test.gcda
+        -:    0:Runs:9
+        -:    1:#include <stdio.h>
+        -:    2:#include <math.h>
+        -:    3:
+        2:    4:double fx(double x)
+        -:    5:{
+        2:    6:	return 1 / sqrt(1 - pow(x, 2));
+        -:    7:}
+        -:    8:
+        2:    9:double sx(double x, int n)
+        -:   10:{
+        2:   11:	int ret, s_up = 1, s_down = 1;
+       2*:   12:	for (int i = 1; i <= n; i += 2)
+    #####:   13:		s_up *= i;
+       2*:   14:	for (int i = 2; i <= n; i += 2)
+    #####:   15:		s_down *= i;
+        -:   16:	
+        2:   17:	ret = (s_up * pow(x, n)) / s_down;
+        2:   18:	return ret;
+        -:   19:}
+        -:   20:
+        9:   21:int main(void)
+        -:   22:{
+        9:   23:	double x, e, del, d, f, s = 0;
+        -:   24:	int rc;
+        9:   25:	printf("Write x and Eps: ");
+        9:   26:	rc = scanf("%lf%lf", &x, &e);
+        9:   27:	if (rc == 2)
+        -:   28:	{
+        8:   29:		if (fabs(x) > 1 || ((e > 0) && (e <= 1)))
+        -:   30:		{
+        6:   31:			printf("Invalid out");
+        6:   32:			return 1;
+        -:   33:		}
+        -:   34:		else
+        -:   35:		{
+        2:   36:			int chet = 0;
+        -:   37:			double next;
+        2:   38:			f = fx(x);
+        2:   39:			next = sx(x, chet);
+        2:   40:			while (next >= e)
+        -:   41:			{
+    #####:   42:				s = s + next;
+    #####:   43:				chet = chet + 2;
+    #####:   44:				next = sx(x, chet);
+        -:   45:			}
+        2:   46:			del = fabs(f-s);
+        2:   47:			d = fabs(f-s)/fabs(f);
+        -:   48:		}
+        -:   49:		
+        -:   50:	}
+        -:   51:	else
+        -:   52:	{
+        1:   53:		printf("Invalid out");
+        1:   54:		return 1;
+        -:   55:	}
+        2:   56:	printf("%lf%lf%lf%lf", s, f, del, d);
+        2:   57:	return 0;
+        -:   58:}

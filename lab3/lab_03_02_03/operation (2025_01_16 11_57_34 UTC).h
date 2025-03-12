@@ -1,0 +1,1 @@
+void change_matrix(int mas[10], int matrix[10][10], int n, int m, int num);

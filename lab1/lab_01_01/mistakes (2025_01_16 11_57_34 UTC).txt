@@ -1,0 +1,24 @@
+1) include without "#" in start
+solution: put "#" in start
+2) not "studio.h", but "stdio.h"
+solution: stdio.h
+3) stdio.h havent got "<>"
+solution: <studio.h>
+4) Arent any types before function
+solution:
+int main...
+5) Arent any arguments inside function
+solution: int main(void)...
+6) Brackets closing without code
+solution:
+int main(void){
+...
+}
+7) Appropriation need to be without ":"
+solution: s = 56;
+8) Must be printf, not print
+solution: printf(...)
+9) format output must be in print
+solution: printf("Year has %d weeks", s);
+10) Must be return in the end
+solution: return 0;

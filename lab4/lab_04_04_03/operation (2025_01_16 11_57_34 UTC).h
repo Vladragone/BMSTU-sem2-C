@@ -1,0 +1,1 @@
+int reg(char *str);
